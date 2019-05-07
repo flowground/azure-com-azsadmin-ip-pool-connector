@@ -1,0 +1,101 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "location": {
+            "required": true,
+            "type": "string"
+        },
+        "ipPool": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "description": "Base resource object.",
+                    "properties": {
+                        "id": {
+                            "description": "URI of the resource.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "location": {
+                            "description": "The region where the resource is located.",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Name of the resource.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "tags": {
+                            "additionalProperties": {
+                                "type": "string"
+                            },
+                            "description": "List of key-value pairs.",
+                            "type": "object"
+                        },
+                        "type": {
+                            "description": "Type of resource.",
+                            "readOnly": true,
+                            "type": "string"
+                        }
+                    },
+                    "type": "object",
+                    "x-ms-azure-resource": true
+                }
+            ],
+            "description": "This resource defines the range of IP addresses from which addresses are  allocated for nodes within a subnet.",
+            "properties": {
+                "properties": {
+                    "description": "Properties of an IpPool.",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "addressPrefix": {
+                            "description": "The address prefix.",
+                            "type": "string"
+                        },
+                        "endIpAddress": {
+                            "description": "The ending IP address.",
+                            "type": "string"
+                        },
+                        "numberOfAllocatedIpAddresses": {
+                            "description": "The number of currently allocated IP addresses.",
+                            "format": "int64",
+                            "type": "integer"
+                        },
+                        "numberOfIpAddresses": {
+                            "description": "The total number of IP addresses.",
+                            "format": "int64",
+                            "type": "integer"
+                        },
+                        "numberOfIpAddressesInTransition": {
+                            "description": "The current number of IP addresses in transition.",
+                            "format": "int64",
+                            "type": "integer"
+                        },
+                        "startIpAddress": {
+                            "description": "The starting IP address.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string",
+            "default": "2016-05-01"
+        }
+    }
+}
